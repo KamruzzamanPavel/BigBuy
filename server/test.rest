@@ -1,0 +1,35 @@
+POST http://localhost:5000/api/auth/register
+Content-Type: application/json
+
+{
+"username":"Ramp_User_2",
+"email":"email_32",
+"password":"passs",
+"isAdmin":false
+}
+###
+DELETE http://localhost:5000/api/users/65bf1f1e5076dd7750bc27ad
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1YmE3MWY0Mjk5YTE3NGNjYmJjMzIyYiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTcwNjg4OTE0NywiZXhwIjoxNzA5NDgxMTQ3fQ.ic4A5yc31_RUxiIqkiDizObWD4UHHSDssqhGRAUKoJc
+
+###
+POST http://localhost:5000/api/products
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1YmE3MWY0Mjk5YTE3NGNjYmJjMzIyYiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTcwNjg4OTE0NywiZXhwIjoxNzA5NDgxMTQ3fQ.ic4A5yc31_RUxiIqkiDizObWD4UHHSDssqhGRAUKoJc
+Content-Type: application/json
+
+{
+    "title": "Goodest shoe",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint maiores minus obcaecati dolorem! Enim, ipsum.",
+    "image": "https://images.unsplash.com/photo-1699868789502-95e99fc1b717?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fHNleHklMjBzaG9lc3xlbnwwfHwwfHx8MA%3D%3D",
+    "category": "shoes",
+    "size": ["40", "41", "42", "43", "44", "45"],
+    "color": ["red", "green", "yellow", "orange"],
+    "price": 58,
+    "inStock": true
+  }
+
+###
+GET http://localhost:5000/api/users
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1YmE3MWY0Mjk5YTE3NGNjYmJjMzIyYiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTcwNjg4OTE0NywiZXhwIjoxNzA5NDgxMTQ3fQ.ic4A5yc31_RUxiIqkiDizObWD4UHHSDssqhGRAUKoJc
+
+###
+GET http://localhost:5000/api/products
