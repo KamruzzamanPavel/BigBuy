@@ -5,7 +5,7 @@ import { Link } from "react-scroll";
 
 const CAROUSEL_DATA = [
   {
-    url: "https://images.unsplash.com/photo-1604644401890-0bd678c83788?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    url: "https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     // url: 'https://images.unsplash.com/photo-1523380744952-b7e00e6e2ffa?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
   },
   {
@@ -25,12 +25,12 @@ const Carousel = () => {
     });
   };
   return (
-    <section className="h-carousel relative bg-red-300">
+    <section className="h-carousel relative bg-red-300 m-8">
       <div
         onClick={decrementIndex}
-        className="w-12 h-12 rounded-full bg-gray-100/50 absolute top-1/2 left-4 cursor-pointer"
+        className="w-14 h-14 rounded-full bg-gray-100/50 absolute top-1/2 left-4 cursor-pointer"
       >
-        <ArrowLeft className="absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2" />
+        <ArrowLeft className="absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 z-10" />
       </div>
       <img
         src={CAROUSEL_DATA[currentIndex].url}
@@ -55,7 +55,8 @@ const Carousel = () => {
         </Link>
       </div>
       <div
-        onClick={incrementIndex}
+        // onClick={incrementIndex}
+        onClick={decrementIndex}
         className="w-12 h-12 rounded-full bg-gray-100/50 absolute top-1/2 right-4 cursor-pointer"
       >
         <ArrowRight className="absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2" />

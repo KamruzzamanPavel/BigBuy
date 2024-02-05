@@ -4,11 +4,11 @@ Content-Type: application/json
 {
 "username":"Ramp_User_2",
 "email":"email_32",
-"password":"passs",
+"password":"pusy",
 "isAdmin":false
 }
 ###
-DELETE http://localhost:5000/api/users/65bf1f1e5076dd7750bc27ad
+DELETE http://localhost:5000/api/users/65bf1d36d493545e7eaf2d01
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1YmE3MWY0Mjk5YTE3NGNjYmJjMzIyYiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTcwNjg4OTE0NywiZXhwIjoxNzA5NDgxMTQ3fQ.ic4A5yc31_RUxiIqkiDizObWD4UHHSDssqhGRAUKoJc
 
 ###
@@ -33,3 +33,14 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1YmE3MWY0M
 
 ###
 GET http://localhost:5000/api/products
+
+###
+POST http://localhost:5000/api/auth/login
+Content-Type: application/json
+
+{
+"username":"Ramp_User_2",
+"email":"email_32",
+"password":"pusy",
+"isAdmin":false
+}
