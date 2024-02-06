@@ -4,7 +4,7 @@ import { Place, MailOutline, LocalPhone } from "@mui/icons-material";
 
 const Footer = () => {
   return (
-    <footer className="p-8 grid gap-x-16 gap-y-4 md:grid-cols-3">
+    <footer className="p-8 grid gap-x-16 gap-y-4 md:grid-cols-3 text-white bg-black">
       <div>
         <h1 className="font-bold text-3xl uppercase mb-4 tracking-wider">
           <a href="">BigBuy</a>

@@ -12,9 +12,8 @@ const Navbar = () => {
   if (user) {
     isAdmin = user.isAdmin;
   }
-  const totalQantity = isAdmin
-    ? 0
-    : useSelector((store) => store.cart.totalQantity);
+  var totalQantity = useSelector((store) => store.cart.totalQantity);
+
   return (
     <nav className="grid grid-cols-2 p-4 border-b font-bold h-18 bg-slate-800 text-white">
       <h1 className="font-bold text-3xl flex items-center justify-start px-4 tracking-wider text-blue">
@@ -33,6 +32,7 @@ const Navbar = () => {
         ) : (
           user.userName
         )}
+
         {user ? (
           <Logout />
         ) : (
@@ -40,15 +40,19 @@ const Navbar = () => {
             Sign in
           </Link>
         )}
-        <Link to="/cart">
-          <Badge
-            badgeContent={totalQantity}
-            color="primary"
-            className="cursor-pointer"
-          >
-            <ShoppingCart />
-          </Badge>
-        </Link>
+        {user ? (
+          <Link to="/cart">
+            <Badge
+              badgeContent={totalQantity}
+              color="primary"
+              className="cursor-pointer"
+            >
+              <ShoppingCart />
+            </Badge>
+          </Link>
+        ) : (
+          ""
+        )}
       </div>
     </nav>
   );

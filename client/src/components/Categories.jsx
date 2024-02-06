@@ -5,7 +5,7 @@ import Categorie from "./Categorie";
 const Categories = () => {
   return (
     <>
-      <header className="bg-gray-800 text-white py-4 m-8 ">
+      <header className="bg-gray-800 text-white py-4 mx-8 ">
         <div className="container mx-auto flex justify-center">
           <h1 className="text-3xl font-bold">Product Categogies</h1>
         </div>

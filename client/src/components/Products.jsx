@@ -27,14 +27,14 @@ const Products = ({ category, filter }) => {
 
   return (
     <>
-      <header className="bg-gray-800 text-white py-4 m-8 ">
+      <header className="bg-gray-800 text-white py-4 mx-8  ">
         <div className="container mx-auto flex justify-center">
           <h1 className="text-3xl font-bold">All Products</h1>
         </div>
       </header>
 
       <section
-        className="pb-8 mx-8 grid gap-2 md:grid-cols-2 lg:grid-cols-4"
+        className="pb-8 m-8 mb-0 grid gap-2 md:grid-cols-2 lg:grid-cols-4"
         id="products"
       >
         {" "}

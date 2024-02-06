@@ -1,5 +1,5 @@
 import { loginStart, loginSuccess, loginFailure, logOut } from "./auth-slice";
-import { publicRequest, userRequest } from "../request-methods";
+import { publicRequest } from "../request-methods";
 
 export const login = (user) => {
   return async (dispatch) => {

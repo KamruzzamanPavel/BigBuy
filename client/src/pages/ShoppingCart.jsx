@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import StripeCheckout from "react-stripe-checkout";
 import { useHistory } from "react-router-dom";
-
+import { resetcart } from "../store/cart-action";
 import { userRequest } from "../request-methods";
 
 import Navbar from "../layout/Navbar";
@@ -12,6 +12,7 @@ import Footer from "../layout/Footer";
 import CartProduct from "../components/CartProduct";
 
 const ShoppingCart = () => {
+  const dispatch = useDispatch();
   const [stripeToken, setStripeToken] = useState(null);
   const history = useHistory();
   const cart = useSelector((store) => store.cart);
@@ -106,6 +107,17 @@ const ShoppingCart = () => {
           </div>
         </div>
       </section>
+      <div className="flex justify-center mb-8">
+        <a
+          onClick={() => {
+            dispatch(resetcart());
+            continueShoppingClickHandler();
+          }}
+          className="text-sm lg:text-md cursor-pointer uppercase block p-4 border-2 border-black hover:bg-red-500 hover:text-white transition ease-out duration-500"
+        >
+          Reset Cart
+        </a>
+      </div>
       <Footer />
     </>
   );
