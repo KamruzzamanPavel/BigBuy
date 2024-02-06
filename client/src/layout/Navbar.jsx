@@ -4,11 +4,17 @@ import { Search, ShoppingCart } from "@mui/icons-material";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import Logout from "../components/Logout";
+import Dashboard from "../components/admin/Dashboard";
 
 const Navbar = () => {
-  const totalQantity = useSelector((store) => store.cart.totalQantity);
   const user = useSelector((store) => store.auth.currentUser);
-
+  var isAdmin = false;
+  if (user) {
+    isAdmin = user.isAdmin;
+  }
+  const totalQantity = isAdmin
+    ? 0
+    : useSelector((store) => store.cart.totalQantity);
   return (
     <nav className="grid grid-cols-2 p-4 border-b font-bold h-18 bg-slate-800 text-white">
       <h1 className="font-bold text-3xl flex items-center justify-start px-4 tracking-wider text-blue">
@@ -18,9 +24,15 @@ const Navbar = () => {
       </h1>
 
       <div className="flex justify-end items-center px-4 text-md md:text-lg">
-        <Link to="/signup" className="uppercase px-4 py-2">
-          Register
-        </Link>
+        {!user ? (
+          <Link to="/signup" className="uppercase px-4 py-2">
+            Register
+          </Link>
+        ) : user.isAdmin ? (
+          <Dashboard />
+        ) : (
+          user.userName
+        )}
         {user ? (
           <Logout />
         ) : (

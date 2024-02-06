@@ -16,7 +16,7 @@ const Home = () => {
   }
   return (
     <>
-      {isAdmin ? <Adheader /> : ""}
+      {isAdmin ? <Adheader name={user.userName} /> : ""}
       <Navbar />
       <Carousel />
       <Categories />

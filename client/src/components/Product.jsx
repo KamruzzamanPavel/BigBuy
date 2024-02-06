@@ -16,7 +16,6 @@ const Product = ({ id, title, image }) => {
           setOverlayIsShown(false);
         }}
       >
-        {console.log(title)}
         <img src={image} alt={title} className="w-full h-full object-cover" />
 
         {overlayIsShown && (

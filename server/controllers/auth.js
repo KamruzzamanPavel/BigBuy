@@ -63,8 +63,9 @@ module.exports.login = (req, res, next) => {
         }
       );
       res.status(200).json({
-        message: "User is logined successfully.",
+        message: "User is logined successfully :) .",
         token,
+        userName: user.username.toString(),
         userId: user._id.toString(),
         isAdmin: user.isAdmin,
       });

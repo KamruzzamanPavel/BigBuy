@@ -15,6 +15,7 @@ const App = () => {
   const user = useSelector((store) => store.auth.currentUser);
   var isAdmin = false;
   if (user) {
+    console.log(user);
     isAdmin = user.isAdmin;
   }
 
