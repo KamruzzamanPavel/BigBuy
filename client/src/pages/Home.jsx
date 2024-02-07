@@ -8,6 +8,7 @@ import Products from "../components/Products";
 import Newsletter from "../components/Newsletter";
 import Footer from "../layout/Footer";
 import Adheader from "../components/admin/Adheader";
+import Automatic_caro from "../components/Automatic_caro";
 const Home = () => {
   const user = useSelector((store) => store.auth.currentUser);
   var isAdmin = false;
@@ -18,7 +19,8 @@ const Home = () => {
     <>
       {isAdmin ? <Adheader name={user.userName} /> : ""}
       <Navbar />
-      <Carousel />
+      <Automatic_caro />
+      {/* <Carousel /> */}
       <Categories />
       <Products />
       <Newsletter />

@@ -42,7 +42,6 @@ const ShoppingCart = () => {
   }, [stripeToken]);
   return (
     <>
-      <Announcement />
       <Navbar />
       <section className="px-8 py-4">
         <h1 className="uppercase mt-4 mb-8 text-4xl text-center">your bag</h1>
@@ -70,7 +69,7 @@ const ShoppingCart = () => {
               amount={cart.totalPrice * 100}
               currency="USD"
               token={onToken}
-              stripeKey="pk_test_51LbSFeDby8a9HLcBzbuGETbDJiWZkCbNQx3gSpAfRZIKSrvsKakFGjvkNPTvzuHNNXKDYojDjdk3XhLlTajrQmeZ00JSyq9AOO"
+              stripeKey="pk_test_51Oglh9IlF1WUtgeQLtAUPwPZCaPZvJ4GaVkHlrIHlyF2ys4ZzhkLTGDz3DX2kqAzUc5zleCelJdZM0Pa4hUrtJuY00wz5u5HBh"
             >
               <a className="text-sm lg:text-md cursor-pointer uppercase block p-4 border-2 hover:text-black hover:border-black hover:bg-white bg-black text-white transition ease-out duration-500">
                 checkout now

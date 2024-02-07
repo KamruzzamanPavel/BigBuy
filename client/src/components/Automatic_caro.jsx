@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import { ArrowLeft, ArrowRight } from "@mui/icons-material";
 import { Link } from "react-scroll";
@@ -14,24 +14,36 @@ const CAROUSEL_DATA = [
     url: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=1399&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
-    url: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    url: "https://images.unsplash.com/photo-1571898219555-7a1d0c3bea5a?q=80&w=1471&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
-    url: "https://images.unsplash.com/photo-1627384113972-f4c0392fe5aa?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    url: "https://images.unsplash.com/photo-1515940279136-2f419eea8051?q=80&w=1257&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
 ];
-const Carousel = () => {
+
+const Automatic_caro = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % CAROUSEL_DATA.length);
+    }, 5000); // Adjust the duration as needed
+
+    return () => clearInterval(intervalId);
+  }, []);
+
   const incrementIndex = () => {
     setCurrentIndex((currentIndex) => {
       return (currentIndex + 1) % CAROUSEL_DATA.length;
     });
   };
+
   const decrementIndex = () => {
     setCurrentIndex((currentIndex) => {
       return currentIndex === 0 ? CAROUSEL_DATA.length - 1 : currentIndex - 1;
     });
   };
+
   return (
     <section className="h-carousel relative bg-red-300 m-8">
       <div
@@ -63,8 +75,7 @@ const Carousel = () => {
         </Link>
       </div>
       <div
-        // onClick={incrementIndex}
-        onClick={decrementIndex}
+        onClick={incrementIndex}
         className="w-12 h-12 rounded-full bg-gray-100/50 absolute top-1/2 right-4 cursor-pointer"
       >
         <ArrowRight className="absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2" />
@@ -73,4 +84,4 @@ const Carousel = () => {
   );
 };
 
-export default Carousel;
+export default Automatic_caro;

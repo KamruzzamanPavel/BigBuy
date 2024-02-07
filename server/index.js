@@ -8,7 +8,7 @@ const cartRoutes = require("./routes/cart");
 const orderRoutes = require("./routes/order");
 const productRoutes = require("./routes/product");
 const authRoutes = require("./routes/auth");
-// const stripeRoutes = require("./routes/stripe");
+const stripeRoutes = require("./routes/stripe");
 
 dotenv.config();
 
@@ -34,7 +34,7 @@ app.use("/api/products", productRoutes);
 app.use("/api/carts", cartRoutes);
 app.use("/api/orders", orderRoutes);
 app.use("/api/auth", authRoutes);
-// app.use('/api/checkout', stripeRoutes);
+app.use("/api/checkout", stripeRoutes);
 
 // Error
 app.use((req, res) => {
