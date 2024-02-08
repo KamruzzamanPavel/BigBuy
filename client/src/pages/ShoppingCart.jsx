@@ -13,6 +13,7 @@ const ShoppingCart = () => {
   const [stripeToken, setStripeToken] = useState(null);
   const history = useHistory();
   const cart = useSelector((store) => store.cart);
+  const user = useSelector((store) => store.auth.currentUser);
   const dispatch = useDispatch();
 
   const continueShoppingClickHandler = () => {
@@ -30,6 +31,9 @@ const ShoppingCart = () => {
           await userRequest.post("/checkout", {
             tokenId: stripeToken.id,
             amount: cart.totalPrice * 100,
+            userId: user.userId,
+            products: [cart.products],
+            shipping: "",
           });
           // dispatch(resetcart()); // Reset the cart after successful checkout in "/orders"
           history.push("/orders");
@@ -51,7 +55,7 @@ const ShoppingCart = () => {
     <>
       <Announcement />
       <Navbar />
-      <section className="px-8 py-4">
+      <section className="px-8 py-2">
         <h1 className="uppercase mt-4 mb-8 text-4xl text-center">Your Bag</h1>
         <div className="grid sm:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
           <div>

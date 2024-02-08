@@ -4,6 +4,14 @@ const Schema = mongoose.Schema;
 
 const orderSchema = new Schema(
   {
+    tokenId: {
+      type: String,
+      default: "Stripe_token",
+    },
+    amount: {
+      type: Number,
+      required: true,
+    },
     userId: {
       // type: Schema.Types.ObjectId,
       // ref: 'User',
@@ -23,9 +31,9 @@ const orderSchema = new Schema(
         },
       },
     ],
-    amount: {
-      type: Number,
-      required: true,
+
+    shipping: {
+      type: String,
     },
     status: {
       type: String,
