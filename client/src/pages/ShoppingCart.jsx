@@ -32,10 +32,10 @@ const ShoppingCart = () => {
             tokenId: stripeToken.id,
             amount: cart.totalPrice * 100,
             userId: user.userId,
-            products: [cart.products],
+            products: cart.products,
             shipping: "",
           });
-          // dispatch(resetcart()); // Reset the cart after successful checkout in "/orders"
+          dispatch(resetcart()); // Reset the cart after successful checkout in "/orders"
           history.push("/orders");
         }
       } catch (err) {

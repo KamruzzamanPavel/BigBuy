@@ -32,6 +32,14 @@ const Navbar = () => {
         ) : (
           user.userName
         )}
+        {/* orders */}
+        {user ? (
+          <Link to={"/orders"} className="uppercase px-4 py-2">
+            Orders
+          </Link>
+        ) : (
+          ""
+        )}
 
         {user ? (
           <Logout />

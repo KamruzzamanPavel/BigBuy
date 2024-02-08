@@ -44,3 +44,12 @@ Content-Type: application/json
 "password":"pusy",
 "isAdmin":false
 }
+
+###
+GET http://localhost:5000/api/orders/65bfb4ee66c0258f3b1a814c
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1YmE3MWY0Mjk5YTE3NGNjYmJjMzIyYiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTcwNjg4OTE0NywiZXhwIjoxNzA5NDgxMTQ3fQ.ic4A5yc31_RUxiIqkiDizObWD4UHHSDssqhGRAUKoJc
+
+
+###
+GET http://localhost:5000/api/orders/65bfb4ee66c0258f3b1a814c
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1YmZiNGVlNjZjMDI1OGYzYjFhODE0YyIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE3MDczNzU4OTAsImV4cCI6MTcwOTk2Nzg5MH0.gI554pSjnByiFpOC_QC43Cqqt5QFWQqXULF4fMF6hsY

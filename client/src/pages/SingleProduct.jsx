@@ -4,7 +4,7 @@ import { Add, Remove } from "@mui/icons-material";
 import { useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { publicRequest } from "../request-methods";
+import { publicRequest, userRequest } from "../request-methods";
 import { addProduct } from "../store/cart-slice";
 
 import Navbar from "../layout/Navbar";
@@ -29,7 +29,7 @@ const SingleProduct = () => {
   const getProduct = async () => {
     try {
       const url = `/products/${id}`;
-      const response = await publicRequest.get(url);
+      const response = await userRequest.get(url);
       setProduct(response.data);
     } catch (error) {
       console.log(error);
