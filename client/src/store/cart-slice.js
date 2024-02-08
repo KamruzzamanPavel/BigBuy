@@ -4,6 +4,7 @@ const initialState = {
   products: [],
   totalQantity: 0,
   totalPrice: 0,
+  createOrder: false,
 };
 const cartSlice = createSlice({
   name: "cart",
@@ -39,28 +40,60 @@ const cartSlice = createSlice({
       }
       state.totalQantity += newProduct.quantity;
       state.totalPrice += newProduct.price * newProduct.quantity;
+      state.createOrder = true;
     },
     // removeProduct(state, action) {},
     // resetCart(state, action) {},
     removeProduct(state, action) {
-      const { productId, size, quantity } = action.payload;
-      state.products = state.products.filter(
-        (product) => !(product._id === productId && product.size === size)
+      const { productId, size } = action.payload;
+      const removedProductIndex = state.products.findIndex(
+        (product) => product._id === productId && product.size === size
       );
-      state.totalQantity -= quantity;
-      state.totalPrice -=
-        quantity *
-        state.products.find(
-          (product) => product._id === productId && product.size === size
-        ).price;
+      if (removedProductIndex !== -1) {
+        const removedProduct = state.products[removedProductIndex];
+        state.totalQantity -= removedProduct.quantity;
+        state.totalPrice -= removedProduct.price * removedProduct.quantity;
+        state.products.splice(removedProductIndex, 1);
+      }
+      if (!state.totalQantity) state.createOrder = false;
+    },
+    incrementQuantity(state, action) {
+      const { productId, size } = action.payload;
+      const product = state.products.find(
+        (product) => product._id === productId && product.size === size
+      );
+      if (product) {
+        product.quantity++;
+        state.totalQantity++;
+        state.totalPrice += product.price;
+      }
+    },
+    decrementQuantity(state, action) {
+      const { productId, size } = action.payload;
+      const product = state.products.find(
+        (product) => product._id === productId && product.size === size
+      );
+      if (product && product.quantity > 1) {
+        product.quantity--;
+        state.totalQantity--;
+        state.totalPrice -= product.price;
+      }
     },
     resetCart(state, action) {
       state.products = [];
       state.totalQantity = 0;
       state.totalPrice = 0;
+      state.createOrder = false;
     },
   },
 });
 
-export const { addProduct, removeProduct, resetCart } = cartSlice.actions;
+export const {
+  addProduct,
+  removeProduct,
+  incrementQuantity,
+  decrementQuantity,
+  resetCart,
+} = cartSlice.actions;
+
 export default cartSlice;

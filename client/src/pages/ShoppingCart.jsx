@@ -1,21 +1,19 @@
 import React, { useState, useEffect } from "react";
-
 import { useSelector, useDispatch } from "react-redux";
 import StripeCheckout from "react-stripe-checkout";
 import { useHistory } from "react-router-dom";
-import { resetcart } from "../store/cart-action";
 import { userRequest } from "../request-methods";
-
+import { resetcart } from "../store/cart-action";
 import Navbar from "../layout/Navbar";
 import Announcement from "../layout/Announcement";
 import Footer from "../layout/Footer";
 import CartProduct from "../components/CartProduct";
 
 const ShoppingCart = () => {
-  const dispatch = useDispatch();
   const [stripeToken, setStripeToken] = useState(null);
   const history = useHistory();
   const cart = useSelector((store) => store.cart);
+  const dispatch = useDispatch();
 
   const continueShoppingClickHandler = () => {
     history.goBack();
@@ -23,42 +21,51 @@ const ShoppingCart = () => {
 
   const onToken = (token) => {
     setStripeToken(token);
-    console.log(token);
   };
 
   useEffect(() => {
     const checkout = async () => {
       try {
-        await userRequest.post("/checkout", {
-          tokenId: stripeToken.id,
-          amount: cart.totalPrice * 100,
-        });
-        history.push("/orders");
+        if (stripeToken && cart.totalPrice > 0) {
+          await userRequest.post("/checkout", {
+            tokenId: stripeToken.id,
+            amount: cart.totalPrice * 100,
+          });
+          // dispatch(resetcart()); // Reset the cart after successful checkout in "/orders"
+          history.push("/orders");
+        }
       } catch (err) {
         console.log(err);
+        // Handle errors here
       }
     };
-    stripeToken && cart.totalPrice > 1 && checkout();
-  }, [stripeToken]);
+
+    checkout();
+  }, [stripeToken, cart.totalPrice, history, dispatch]);
+
+  const resetCartHandler = () => {
+    dispatch(resetcart()); // Manually reset the cart
+  };
+
   return (
     <>
+      <Announcement />
       <Navbar />
       <section className="px-8 py-4">
-        <h1 className="uppercase mt-4 mb-8 text-4xl text-center">your bag</h1>
+        <h1 className="uppercase mt-4 mb-8 text-4xl text-center">Your Bag</h1>
         <div className="grid sm:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
           <div>
-            <a
+            <button
               onClick={continueShoppingClickHandler}
               className="text-sm lg:text-md cursor-pointer uppercase block p-4 border-2 border-black hover:bg-black hover:text-white transition ease-out duration-500"
             >
-              continue shopping
-            </a>
+              Continue Shopping
+            </button>
           </div>
           <div className="flex">
             <p className="mr-4 cursor-pointer">
               Shopping Bag ({cart.totalQantity})
             </p>
-            {/* <a className='underline cursor-pointer'>Your Wishlist (0)</a> */}
           </div>
           <div>
             <StripeCheckout
@@ -70,10 +77,11 @@ const ShoppingCart = () => {
               currency="USD"
               token={onToken}
               stripeKey="pk_test_51Oglh9IlF1WUtgeQLtAUPwPZCaPZvJ4GaVkHlrIHlyF2ys4ZzhkLTGDz3DX2kqAzUc5zleCelJdZM0Pa4hUrtJuY00wz5u5HBh"
+              disabled={!cart.totalPrice || stripeToken}
             >
-              <a className="text-sm lg:text-md cursor-pointer uppercase block p-4 border-2 hover:text-black hover:border-black hover:bg-white bg-black text-white transition ease-out duration-500">
-                checkout now
-              </a>
+              <button className="text-sm lg:text-md cursor-pointer uppercase block p-4 border-2 hover:text-black hover:border-black hover:bg-white bg-black text-white transition ease-out duration-500">
+                Checkout Now
+              </button>
             </StripeCheckout>
           </div>
         </div>
@@ -85,17 +93,17 @@ const ShoppingCart = () => {
           </div>
           <div>
             <div className="border rounded-xl p-4">
-              <h1 className="uppercase text-4xl mb-8">order summary</h1>
+              <h1 className="uppercase text-4xl mb-8">Order Summary</h1>
               <div className="flex justify-between mb-8">
-                <span className="capitalize">subtotal</span>
+                <span className="capitalize">Subtotal</span>
                 <span>$ {cart.totalPrice}</span>
               </div>
               <div className="flex justify-between mb-8">
-                <span className="capitalize">estimated shipping</span>
+                <span className="capitalize">Estimated Shipping</span>
                 <span>$ 00.00</span>
               </div>
               <div className="flex justify-between mb-8">
-                <span className="capitalize">shipping discount</span>
+                <span className="capitalize">Shipping Discount</span>
                 <span>-$ 00.00</span>
               </div>
               <div className="flex justify-between mb-8">
@@ -105,18 +113,15 @@ const ShoppingCart = () => {
             </div>
           </div>
         </div>
+        <div className="flex justify-center mb-8">
+          <button
+            onClick={resetCartHandler}
+            className="text-sm lg:text-md cursor-pointer uppercase block p-4 border-2 border-black hover:bg-red-500 hover:text-white transition ease-out duration-500"
+          >
+            Reset Cart
+          </button>
+        </div>
       </section>
-      <div className="flex justify-center mb-8">
-        <a
-          onClick={() => {
-            dispatch(resetcart());
-            continueShoppingClickHandler();
-          }}
-          className="text-sm lg:text-md cursor-pointer uppercase block p-4 border-2 border-black hover:bg-red-500 hover:text-white transition ease-out duration-500"
-        >
-          Reset Cart
-        </a>
-      </div>
       <Footer />
     </>
   );
