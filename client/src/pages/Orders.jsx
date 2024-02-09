@@ -38,8 +38,13 @@ const Orders = () => {
     <>
       <Navbar />
       <div className="container mx-auto">
-        <h1 className="text-3xl font-semibold mt-8 mb-4">Orders</h1>
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+        <div className="text-center mt-8 mb-6">
+          <h1 className="text-4xl font-bold text-gray-800">
+            Orders: <span className="text-green-500">{orders.length}</span>
+          </h1>
+          <div className="w-full h-1 bg-gray-600 mx-auto mt-2 mb-4"></div>
+        </div>
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
           {/* Map each order to OrderComponent */}
           {orders.map((order) => (
             <OrderComponent key={order._id} orderData={order} />

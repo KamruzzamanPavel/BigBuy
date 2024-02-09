@@ -10,6 +10,7 @@ module.exports.register = (req, res, next) => {
   const username = req.body.username;
   const email = req.body.email;
   const password = req.body.password;
+  const address = req.body.address;
   const isAdmin = req.body.isAdmin || false;
   bcrypt
     .hash(password, 12)
@@ -18,6 +19,7 @@ module.exports.register = (req, res, next) => {
         username,
         email,
         password: hashedPassword,
+        address,
         isAdmin,
       });
       return user.save();
