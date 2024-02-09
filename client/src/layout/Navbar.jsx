@@ -28,7 +28,11 @@ const Navbar = () => {
             Register
           </Link>
         ) : user.isAdmin ? (
-          <Link to="/dashboard">Dashboard</Link>
+          <h1 className="font-bold text-3xl flex items-center justify-start px-4 tracking-wider">
+            <Link to="/dashboard" className="text-red-500">
+              <span className="text-stroke">Admin-Dashboard</span>
+            </Link>
+          </h1>
         ) : (
           // user.userName
           <Link to="/users" className="uppercase px-4 py-2">
@@ -37,9 +41,13 @@ const Navbar = () => {
         )}
         {/* orders */}
         {user ? (
-          <Link to={"/orders"} className="uppercase px-4 py-2">
-            Orders
-          </Link>
+          !isAdmin ? (
+            <Link to={"/orders"} className="uppercase px-4 py-2">
+              Orders
+            </Link>
+          ) : (
+            ""
+          )
         ) : (
           ""
         )}

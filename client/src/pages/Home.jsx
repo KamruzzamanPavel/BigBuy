@@ -7,7 +7,7 @@ import Categories from "../components/Categories";
 import Products from "../components/Products";
 import Newsletter from "../components/Newsletter";
 import Footer from "../layout/Footer";
-import Adheader from "../components/admin/Adheader";
+// import Adheader from "../components/admin/Adheader";
 import Automatic_caro from "../components/Automatic_caro";
 const Home = () => {
   const user = useSelector((store) => store.auth.currentUser);
@@ -17,7 +17,6 @@ const Home = () => {
   }
   return (
     <>
-      {isAdmin ? <Adheader name={user.userName} /> : ""}
       <Navbar />
       <Automatic_caro />
       {/* <Carousel /> */}

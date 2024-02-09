@@ -4,8 +4,9 @@ import { useUserRequest } from "../req_m"; // Update the import path with the co
 
 import Navbar from "../layout/Navbar";
 import UserCard from "../components/UserCard";
+import SingleUser from "../components/SingleUser";
 
-const Users = () => {
+const Users = ({ noNav }) => {
   const [orders, setOrders] = useState(null); // Initialize orders state with null
   const user = useSelector((store) => store.auth.currentUser);
   const isAdmin = user ? user.isAdmin : false;
@@ -36,7 +37,7 @@ const Users = () => {
 
   return (
     <>
-      <Navbar />
+      {!noNav && <Navbar />}
       <div className="container mx-auto">
         <div className="text-center mt-8 mb-6">
           <h1 className="text-4xl font-bold text-gray-800">
@@ -54,7 +55,7 @@ const Users = () => {
             isAdmin ? (
               orders.map((order) => <UserCard key={order._id} user={order} />)
             ) : (
-              <UserCard user={orders} />
+              <SingleUser user={orders} />
             )
           ) : (
             <div>Loading...</div>

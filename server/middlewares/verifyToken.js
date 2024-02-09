@@ -16,7 +16,7 @@ module.exports.verifyToken = (req, res, next) => {
     res.status(500).json(error);
   }
   req.user = payload;
-  console.log(req.user);
+  // console.log(req.user);
   next();
 };
 

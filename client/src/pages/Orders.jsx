@@ -5,7 +5,7 @@ import { useUserRequest } from "../req_m"; // Update the import path with the co
 import Navbar from "../layout/Navbar";
 import OrderComponent from "../components/OrderComponent";
 
-const Orders = () => {
+const Orders = ({ noNav }) => {
   const [orders, setOrders] = useState([]);
   const user = useSelector((store) => store.auth.currentUser);
   const isAdmin = user ? user.isAdmin : false;
@@ -36,7 +36,8 @@ const Orders = () => {
 
   return (
     <>
-      <Navbar />
+      {noNav ? "" : <Navbar />}
+
       <div className="container mx-auto">
         <div className="text-center mt-8 mb-6">
           <h1 className="text-4xl font-bold text-gray-800">

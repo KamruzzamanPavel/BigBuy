@@ -14,7 +14,7 @@ function OrderComponent({ orderData }) {
   }, 0);
 
   return (
-    <div className="bg-white rounded-lg overflow-hidden shadow-md w-80 mx-auto border-2 border-solid border-slate-500 p-4">
+    <div className="bg-gray-800 rounded-lg overflow-hidden shadow-md w-80 mx-auto border-2 border-solid border-slate-500 p-4 text-gray-200">
       <div className="p-4">
         <h2 className="text-xl font-semibold mb-4 text-center">
           Order Details
@@ -26,12 +26,12 @@ function OrderComponent({ orderData }) {
           <p className="text-sm">
             <strong>Status:</strong> {orderData.status}
           </p>
-          <p className="text-sm mt-2 col-span-2 text-gray-600">
+          <p className="text-sm mt-2 col-span-2 text-gray-400">
             Ordered: {createdAtDate}
           </p>
         </div>
       </div>
-      <div className="bg-gray-100 p-4">
+      <div className="bg-gray-700 p-4">
         <h3 className="text-xl font-semibold mb-4 text-center">Orders</h3>
         {orderData.products.map((product, index) => (
           <div key={index} className="flex justify-between items-center mb-2">
@@ -39,7 +39,7 @@ function OrderComponent({ orderData }) {
             <p className="text-sm">{product.quantity}</p>
           </div>
         ))}
-        <hr className="my-2" />
+        <hr className="my-2 border-gray-600" />
         <p className="font-semibold text-center">Total Price: ${totalPrice}</p>
       </div>
     </div>
