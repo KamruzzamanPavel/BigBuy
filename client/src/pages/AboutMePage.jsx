@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import { IconButton } from "@mui/material";
 // Import your social media icons (SVG) as React components
 import GitHubIcon from "@mui/icons-material/GitHub";
 import FacebookIcon from "@mui/icons-material/Facebook";
@@ -10,17 +10,26 @@ const AboutMePage = () => {
       <div className="max-w-4xl mx-auto">
         {/* Navigation Bar */}
         <nav className="flex justify-between items-center mb-8">
+          <span className="text-2xl">BigBuy.</span>{" "}
+          <span className="text-lg  text-blue-400 font-normal">
+            A Trusted Name in E-commerce{" "}
+          </span>
           <Link to="/" className="text-xl font-semibold">
-            Continue Shopping
+            {" "}
+            <span className=" hover:text-pink-600 ">Continue Shopping</span>
           </Link>
         </nav>
         <hr />
         <div className="mt-12 flex justify-center">
-          <div className="border-4 border-blue-400 rounded-full overflow-hidden">
+          <div className="border-4 border-blue-500 rounded-full overflow-hidden">
             <img
               src="/picc.jpg"
               alt="John Doe"
               className="w-48 h-48 object-cover"
+              style={{
+                filter:
+                  "saturate(0) brightness(0.8) contrast(1.2) sepia(0.1) hue-rotate(180deg)",
+              }}
             />
           </div>
         </div>
@@ -30,7 +39,9 @@ const AboutMePage = () => {
         <div className="mt-6 space-y-6 text-lg">
           <p>
             Hello! I'm{" "}
-            <span className="font-bold text-green-500">Kamruzzaman Pavel</span>{" "}
+            <span className="font-bold text-blue-500 text-xl">
+              Kamruzzaman Pavel
+            </span>{" "}
             , a software enthusiast based in Kushtia, Bangladesh. I specialize
             in full-stack web development with technologies like React, Node.js,
             and MongoDB.
@@ -43,8 +54,7 @@ const AboutMePage = () => {
 
           <p>
             When I'm not coding, you can find me walking in the park,
-            experimenting with new recipes in the kitchen, or exploring the
-            latest tech trends.
+            experimenting with paperplanes, or exploring the latest tech trends.
           </p>
           <p>
             Feel free to{" "}
@@ -58,23 +68,26 @@ const AboutMePage = () => {
             technology!
           </p>
         </div>
+
+        <hr className="mx-6 my-6" />
         {/* Social Media Links */}
-        <div>
+        <div className="text-3xl flex items-center">
+          <h1 className=" m-4 text-lg font-bold">You can also find me on : </h1>
           <a
             href="https://github.com/your_github"
             target="_blank"
             rel="noopener noreferrer"
-            className="mx-2"
+            className="m-2"
           >
-            <GitHubIcon className="w-6 h-6 fill-current text-blue-400 hover:text-blue-600" />
+            <GitHubIcon className=" fill-current text-blue-400 hover:text-blue-600" />
           </a>
           <a
             href="https://github.com/your_github"
             target="_blank"
             rel="noopener noreferrer"
-            className="mx-2"
+            className="m-2 text-3l"
           >
-            <FacebookIcon className="w-6 h-6 fill-current text-blue-400 hover:text-blue-600" />
+            <FacebookIcon className="  text-blue-400 hover:text-blue-600" />
           </a>
         </div>
       </div>

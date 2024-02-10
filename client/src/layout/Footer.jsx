@@ -25,7 +25,7 @@ const Footer = () => {
       <div>
         <h2 className="font-bold text-2xl mb-4 tracking-wider">Contact</h2>
         <ul>
-          <li>
+          <li className="font-bold text-2xl text-red-600">
             {" "}
             <Link to="/aboutme">About me</Link>
           </li>
