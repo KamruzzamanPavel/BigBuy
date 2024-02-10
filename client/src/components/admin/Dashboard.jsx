@@ -1,9 +1,11 @@
 import React from "react";
-import Users from "../../pages/Users";
+import Users from "./Users";
 import Orders from "../../pages/Orders";
 import Footer from "../../layout/Footer";
 import { Link } from "react-router-dom";
 import Navbar from "../../layout/Navbar";
+
+import Products from "./Products";
 const Dashboard = () => {
   return (
     <>
@@ -18,6 +20,8 @@ const Dashboard = () => {
         <Users noNav={true} />
 
         <Orders noNav={true} />
+        <hr />
+        <Products />
       </div>
       <Footer></Footer>
     </>

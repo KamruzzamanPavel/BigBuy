@@ -2,10 +2,10 @@ POST http://localhost:5000/api/auth/register
 Content-Type: application/json
 
 {
-"username":"Ramp_User_2",
-"email":"email_32",
-"password":"pusy",
-"isAdmin":false
+"username":"Pavel",
+"email":"wow",
+"password":"pass",
+"isAdmin":true
 }
 ###
 DELETE http://localhost:5000/api/users/65bf1d36d493545e7eaf2d01
@@ -41,10 +41,10 @@ POST http://localhost:5000/api/auth/login
 Content-Type: application/json
 
 {
-"username":"Ramp_User_2",
-"email":"email_32",
-"password":"pusy",
-"isAdmin":false
+"username":"Pavel",
+"email":"wow",
+"password":"pass",
+"isAdmin":true
 }
 
 ###

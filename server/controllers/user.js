@@ -3,7 +3,7 @@ const User = require("../models/User");
 module.exports.updateUser = async (req, res) => {
   try {
     const updatedUser = await User.findByIdAndUpdate(
-      req.params.id,
+      req.params.userId,
       {
         $set: req.body,
       },

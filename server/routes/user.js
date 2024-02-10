@@ -15,7 +15,7 @@ const {
 const router = express.Router();
 
 // PUT => /api/users/:id
-router.patch("/:id", verifyTokenAndAuthorization, updateUser);
+router.patch("/:userId", verifyTokenAndAuthorization, updateUser);
 
 // DELETE => /api/users/:id
 router.delete("/:id", verifyTokenAndAuthorization, deleteUser);

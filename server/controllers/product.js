@@ -70,7 +70,7 @@ module.exports.getProducts = async (req, res) => {
         { title: 1, image: 1 }
       );
     } else {
-      products = await Product.find({}, { title: 1, image: 1 });
+      products = await Product.find();
     }
     res.status(200).json(products);
   } catch (error) {
