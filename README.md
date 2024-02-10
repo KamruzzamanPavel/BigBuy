@@ -96,18 +96,3 @@ $ npm run build
         |-- stripe.js
         `-- user.js
 ```
-
-## 📷 Screenshots
-
-- ### Large Screens
-  ![large screens](ss/large/home.png)
-  <br>
-  ![large screens](ss/large/productcategorie.png)
-  <br>
-  ![large screens](ss/large/singleproduct.png)
-  <br>
-  ![large screens](ss/large/shoppingcart.png)
-  <br>
-  ![large screens](ss/large/signup.png)
-  <br>
-  ![large screens](ss/large/login.png)
