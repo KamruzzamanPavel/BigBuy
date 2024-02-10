@@ -13,6 +13,7 @@ import { Redirect } from "react-router-dom/cjs/react-router-dom.min";
 import Users from "./pages/Users";
 import ProductUpload from "./pages/ProductUpload";
 import CreateUser from "./pages/CreateUser";
+import AboutMePage from "./pages/AboutMePage";
 
 const App = () => {
   const user = useSelector((store) => store.auth.currentUser);
@@ -50,7 +51,9 @@ const App = () => {
         <Route path="/uploadProduct">
           <ProductUpload />
         </Route>
-
+        <Route path="/aboutme">
+          <AboutMePage />
+        </Route>
         <Route path="/createUser">
           <CreateUser />
         </Route>

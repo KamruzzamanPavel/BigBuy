@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { publicRequest } from "../request-methods";
 import { login } from "../store/auth-actions";
@@ -36,14 +36,19 @@ const Signup = () => {
     }
   };
 
-  const handleModalClose = () => {
-    setIsSuccessModalOpen(false);
-    // Automatically login the user after modal is closed
-    dispatch(
-      login({ username: formData.username, password: formData.password })
-    );
-    setRedirectHome(true);
-  };
+  useEffect(() => {
+    if (isSuccessModalOpen) {
+      const timer = setTimeout(() => {
+        setIsSuccessModalOpen(false);
+        dispatch(
+          login({ username: formData.username, password: formData.password })
+        );
+        setRedirectHome(true);
+      }, 3000);
+
+      return () => clearTimeout(timer);
+    }
+  }, [isSuccessModalOpen, dispatch, formData.username, formData.password]);
 
   const toggleSignupForm = () => {
     setIsSignupFormOpen(!isSignupFormOpen);
@@ -143,15 +148,9 @@ const Signup = () => {
       {isSuccessModalOpen && (
         <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-gray-800 bg-opacity-50">
           <div className="bg-white p-8 rounded-lg">
-            <p className="text-2xl text-center text-green-500 mb-4">
+            <p className="text-2xl text-center font-bold text-green-500 mb-4">
               Registration Successful!
             </p>
-            <button
-              className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 focus:outline-none"
-              onClick={handleModalClose}
-            >
-              Continue
-            </button>
           </div>
         </div>
       )}

@@ -26,6 +26,10 @@ const Footer = () => {
         <h2 className="font-bold text-2xl mb-4 tracking-wider">Contact</h2>
         <ul>
           <li>
+            {" "}
+            <Link to="/aboutme">About me</Link>
+          </li>
+          <li>
             <Place className="mr-4" />
             <span>Kushtia, Bangladesh</span>
           </li>
