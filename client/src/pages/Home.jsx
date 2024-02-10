@@ -9,6 +9,7 @@ import Newsletter from "../components/Newsletter";
 import Footer from "../layout/Footer";
 // import Adheader from "../components/admin/Adheader";
 import Automatic_caro from "../components/Automatic_caro";
+import ScrollToTop from "../components/ScrollToTop";
 const Home = () => {
   const user = useSelector((store) => store.auth.currentUser);
   var isAdmin = false;
@@ -22,7 +23,8 @@ const Home = () => {
       {/* <Carousel /> */}
       <Categories />
       <Products />
-      <Newsletter />
+      <ScrollToTop />
+      {/* <Newsletter /> */}
       <Footer />
     </>
   );

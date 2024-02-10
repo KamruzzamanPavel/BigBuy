@@ -120,8 +120,9 @@ const SingleProduct = () => {
             )}
           </div>
         </div>
+        <hr />
       </section>
-      <Newsletter />
+
       <Footer />
     </>
   );

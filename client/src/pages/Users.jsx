@@ -38,7 +38,7 @@ const Users = ({ noNav }) => {
   return (
     <>
       {!noNav && <Navbar />}
-      <div className="container mx-auto">
+      <div className="container m-8 over  ">
         <div className="text-center mt-8 mb-6">
           <h1 className="text-4xl font-bold text-gray-800">
             {isAdmin && orders !== null && (
@@ -50,12 +50,28 @@ const Users = ({ noNav }) => {
           </h1>
           <div className="w-full h-1 bg-gray-600 mx-auto mt-2 mb-4"></div>
         </div>
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div className=" h-screen w-auto bg-gray-200 flex m-8 p-4  overflow-scroll">
           {orders !== null ? (
             isAdmin ? (
-              orders.map((order) => <UserCard key={order._id} user={order} />)
+              <div className="flex flex-wrap ">
+                {orders.map((order) => (
+                  <UserCard key={order._id} user={order} />
+                ))}
+              </div>
             ) : (
-              <SingleUser user={orders} />
+              <div className="w-screen h-70  bg-slate-900 text-white shadow-md rounded-lg overflow-hidden p-6 flex flex-col text-center ">
+                <hr />
+                <h2 className="text-2xl font-bold mb-4">
+                  name : {orders.username}
+                </h2>
+                <hr />
+                <p className="text-lg font-bold mb-4 ">
+                  Address:{orders.address}
+                </p>
+                <hr />
+                <p className="text-lg font-bold mb-4">Email : {orders.email}</p>
+                <hr className="" />
+              </div>
             )
           ) : (
             <div>Loading...</div>

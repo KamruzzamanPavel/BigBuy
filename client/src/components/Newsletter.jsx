@@ -5,10 +5,8 @@ import { Send } from "@mui/icons-material";
 const Newsletter = () => {
   return (
     <section className="bg-slate-400 py-32 px-8 flex flex-col items-center">
-      <h2 className="font-bold text-5xl sm:text-6xl md:text-7xl mb-10">
-        Newsletter
-      </h2>
-      <p className="text-2xl mb-10 text-center">
+      <h2 className="font-bold  mb-10">Newsletter</h2>
+      <p className=" mb-3 text-center">
         Get timely updates from your favorite products
       </p>
       <form

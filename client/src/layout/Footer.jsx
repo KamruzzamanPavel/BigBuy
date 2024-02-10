@@ -1,8 +1,14 @@
 import React from "react";
-
+import { useSelector } from "react-redux";
 import { Place, MailOutline, LocalPhone } from "@mui/icons-material";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
+  const user = useSelector((store) => store.auth.currentUser);
+  var isAdmin = false;
+  if (user) {
+    isAdmin = user.isAdmin;
+  }
   return (
     <footer className="p-8 grid gap-x-16 gap-y-4 md:grid-cols-3 text-white bg-black">
       <div>
@@ -10,45 +16,11 @@ const Footer = () => {
           <a href="">BigBuy</a>
         </h1>
         <p className="text-justify">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione
-          recusandae nobis sunt aliquid tempore vitae sapiente ea voluptatibus
-          ab repellat asperiores eius cum laboriosam facilis eos, maiores
-          deleniti nemo consequuntur assumenda sed consectetur culpa voluptatum
-          quisquam quibusdam? Saepe, soluta quibusdam.
+          BigBuy is a leading dropshipping supplier and wholesale distributor
+          based in Kushta-Sadar,Bangladesh, offering a wide range of products
+          across various categories such as electronics, fashion, beauty, home
+          goods, and more.
         </p>
-      </div>
-      <div>
-        <h2 className="font-bold text-2xl mb-4 tracking-wider">Useful Links</h2>
-        <div className="grid grid-cols-2">
-          <ul>
-            <li>
-              <a href="">Home</a>
-            </li>
-            <li>
-              <a href="">Man Fashion</a>
-            </li>
-            <li>
-              <a href="">Accessories</a>
-            </li>
-            <li>
-              <a href="">Order Tracking</a>
-            </li>
-          </ul>
-          <ul>
-            <li>
-              <a href="">Cart</a>
-            </li>
-            <li>
-              <a href="">My Account</a>
-            </li>
-            <li>
-              <a href="">Wishlist</a>
-            </li>
-            <li>
-              <a href="">Terms</a>
-            </li>
-          </ul>
-        </div>
       </div>
       <div>
         <h2 className="font-bold text-2xl mb-4 tracking-wider">Contact</h2>
