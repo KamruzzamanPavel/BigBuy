@@ -11,12 +11,16 @@ const Dashboard = () => {
     <>
       <div className="mb-10">
         <Navbar />
-        <button className="bg-gray-800 hover:bg-gray-700 m-4 text-white font-bold py-3 px-6 rounded-lg shadow-lg focus:outline-none focus:shadow-outline text-xl">
-          <Link to="uploadProduct"> Upload Product</Link>
-        </button>
-        <button className="bg-gray-800 hover:bg-gray-700 m-4 text-white font-bold py-3 px-6 rounded-lg shadow-lg focus:outline-none focus:shadow-outline text-xl">
-          <Link to="createUser"> Create User</Link>
-        </button>
+        <div className="flex justify-center">
+          <button className="bg-gray-800 hover:bg-gray-700 m-4 text-white font-bold py-3 px-6 rounded-lg shadow-lg focus:outline-none focus:shadow-outline text-xl">
+            <Link to="uploadProduct"> Upload Product</Link>
+          </button>
+          <button className="bg-gray-800 hover:bg-gray-700 m-4 text-white font-bold py-3 px-6 rounded-lg shadow-lg focus:outline-none focus:shadow-outline text-xl">
+            <Link to="createUser"> Create User</Link>
+          </button>
+        </div>
+        <hr />
+        <Products />
         <Users noNav={true} />
 
         <Orders noNav={true} />

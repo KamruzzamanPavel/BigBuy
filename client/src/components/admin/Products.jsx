@@ -58,6 +58,16 @@ const Products = () => {
 
   return (
     <>
+      <div className="text-center mt-8 mb-6">
+        <h1 className="text-4xl font-bold text-gray-800">
+          <span>
+            Products:
+            <span className="text-green-500">{products.length}</span>
+          </span>
+        </h1>
+        <div className="w-full h-1 bg-gray-600 m-8 mt-2  "></div>
+      </div>
+
       <section
         className="pb-8 m-8 mb-0 grid gap-2 md:grid-cols-2 lg:grid-cols-4"
         id="products"
