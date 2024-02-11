@@ -63,7 +63,7 @@ const Product = ({ product, onUpdate, onDelete }) => {
                 onChange={(e) =>
                   setUpdatedData({ ...updatedData, title: e.target.value })
                 }
-                className="w-full px-3 py-2 border rounded-md mb-4"
+                className="w-full px-3 py-2 border rounded-md mb-4 text-black"
               />
               <label htmlFor="title" className="block mb-2">
                 Description:
@@ -78,7 +78,7 @@ const Product = ({ product, onUpdate, onDelete }) => {
                     description: e.target.value,
                   })
                 }
-                className="w-full px-3 py-2 border rounded-md mb-4"
+                className="w-full px-3 py-2 border rounded-md mb-4  text-black"
               />
               <label htmlFor="title" className="block mb-2">
                 Image:
@@ -90,7 +90,7 @@ const Product = ({ product, onUpdate, onDelete }) => {
                 onChange={(e) =>
                   setUpdatedData({ ...updatedData, image: e.target.value })
                 }
-                className="w-full px-3 py-2 border rounded-md mb-4"
+                className="w-full px-3 py-2 border rounded-md mb-4  text-black"
               />
               <label htmlFor="title" className="block mb-2">
                 Price:
@@ -102,7 +102,7 @@ const Product = ({ product, onUpdate, onDelete }) => {
                 onChange={(e) =>
                   setUpdatedData({ ...updatedData, price: e.target.value })
                 }
-                className="w-full px-3 py-2 border rounded-md mb-4"
+                className="w-full px-3 py-2 border rounded-md mb-4  text-black"
               />
 
               {/* Add input fields for description, image_url, category, and price similarly */}
