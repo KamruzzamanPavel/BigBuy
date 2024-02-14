@@ -46,27 +46,31 @@ const Automatic_caro = () => {
         <div onClick={decrementIndex} className="carousel-control left-control">
           <ArrowLeft className="control-icon" />
         </div>
-        <img
-          src={CAROUSEL_DATA[currentIndex].url}
-          className="carousel-image object-cover w-full h-auto"
-          alt="carousel-image"
-        />
-        <div className="carousel-overlay absolute inset-0 bg-black/30 flex flex-col items-center justify-center text-white">
-          <h1 className="text-4xl md:text-6xl font-bold mb-8">Winter Sale</h1>
-          <p className="text-center tracking-wider mb-16 text-md md:text-xl">
-            Don't compromise on style! Get flat 30% off for new arrivals.
-          </p>
-          <Link
-            to="categories"
-            spy={true}
-            smooth={true}
-            offset={50}
-            duration={500}
-          >
-            <button className="border p-3 bg-white text-black text-lg hover:bg-teal-600 hover:border-none hover:text-white transition ease-out duration-500">
-              Shop Now <ArrowRight />
-            </button>
-          </Link>
+        <div className="carousel-frame">
+          <img
+            src={CAROUSEL_DATA[currentIndex].url}
+            className="carousel-image object-cover w-full h-full"
+            alt="carousel-image"
+          />
+          <div className="p-4 carousel-overlay absolute inset-0 bg-black/30 flex flex-col items-center justify-center text-white">
+            <h1 className="text-xl md:text-2xl lg:text-4xl font-bold mb-4 md:mb-8">
+              Spring Sale !!!
+            </h1>
+            <p className="text-center tracking-wider mb-8 text-sm md:text-base lg:text-lg">
+              Don't compromise on style! Get flat 30% off for new arrivals.
+            </p>
+            <Link
+              to="categories"
+              spy={true}
+              smooth={true}
+              offset={50}
+              duration={500}
+            >
+              <button className="border p-3 bg-white text-black text-base md:text-lg lg:text-xl hover:bg-teal-600 hover:border-none hover:text-white transition ease-out duration-500">
+                Shop Now <ArrowRight />
+              </button>
+            </Link>
+          </div>
         </div>
         <div
           onClick={incrementIndex}
