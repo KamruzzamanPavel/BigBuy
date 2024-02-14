@@ -11,14 +11,12 @@ const AboutMePage = () => {
         {/* Navigation Bar */}
         <nav className="flex justify-between items-center mb-8">
           <span className="text-2xl">BigBuy.</span>{" "}
-          <span className="text-lg  text-blue-400 font-normal">
-            A Trusted Name in E-commerce{" "}
-          </span>
           <Link to="/" className="text-xl font-semibold">
             {" "}
             <span className=" hover:text-pink-600 ">Continue Shopping</span>
           </Link>
         </nav>
+
         <hr />
         <div className="mt-12 flex justify-center">
           <div className="border-4 border-blue-500 rounded-full overflow-hidden">
