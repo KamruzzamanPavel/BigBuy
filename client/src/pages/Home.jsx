@@ -17,16 +17,16 @@ const Home = () => {
     isAdmin = user.isAdmin;
   }
   return (
-    <>
+    <div className="bg-black">
       <Navbar />
       <Automatic_caro />
-      {/* <Carousel /> */}
+
       <Categories />
       <Products />
       <ScrollToTop />
-      {/* <Newsletter /> */}
+
       <Footer />
-    </>
+    </div>
   );
 };
 

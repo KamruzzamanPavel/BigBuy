@@ -10,9 +10,9 @@ const Footer = () => {
     isAdmin = user.isAdmin;
   }
   return (
-    <footer className="p-8 grid gap-x-16 gap-y-4 md:grid-cols-3 text-white bg-black">
+    <footer className="p-2 grid gap-x-16 gap-y-2 md:grid-cols-3 text-white bg-slate-700">
       <div>
-        <h1 className="font-bold text-3xl uppercase mb-4 tracking-wider">
+        <h1 className="font-bold text-3xl uppercase mb-2 tracking-wider">
           <a href="">BigBuy</a>
         </h1>
         <p className="text-justify">
@@ -23,7 +23,7 @@ const Footer = () => {
         </p>
       </div>
       <div>
-        <h2 className="font-bold text-2xl mb-4 tracking-wider">Contact</h2>
+        <h2 className="font-bold text-2xl mb-2 tracking-wider">Contact</h2>
         <ul>
           <li className="font-bold text-2xl text-red-600">
             {" "}

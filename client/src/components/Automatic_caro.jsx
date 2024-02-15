@@ -17,7 +17,7 @@ const CAROUSEL_DATA = [
   },
 ];
 
-const Automatic_caro = () => {
+const AutomaticCarousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
@@ -41,22 +41,22 @@ const Automatic_caro = () => {
   };
 
   return (
-    <section className="relative m-8">
+    <section className="relative m-2 mb-0">
       <div className="carousel-wrapper relative">
         <div onClick={decrementIndex} className="carousel-control left-control">
           <ArrowLeft className="control-icon" />
         </div>
-        <div className="carousel-frame">
+        <div className="carousel-frame relative">
           <img
             src={CAROUSEL_DATA[currentIndex].url}
-            className="carousel-image object-cover w-full h-full"
+            className="carousel-image object-cover w-full h-80 sm:h-96 md:h-120 lg:h-144"
             alt="carousel-image"
           />
-          <div className="p-4 carousel-overlay absolute inset-0 bg-black/30 flex flex-col items-center justify-center text-white">
-            <h1 className="text-xl md:text-2xl lg:text-4xl font-bold mb-4 md:mb-8">
+          <div className="p-4 carousel-overlay absolute inset-0 flex flex-col items-center justify-center text-white">
+            <h1 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold mb-4 md:mb-8">
               Spring Sale !!!
             </h1>
-            <p className="text-center tracking-wider mb-8 text-sm md:text-base lg:text-lg">
+            <p className="text-center tracking-wide mb-4 text-sm md:text-base lg:text-lg">
               Don't compromise on style! Get flat 30% off for new arrivals.
             </p>
             <Link
@@ -66,7 +66,7 @@ const Automatic_caro = () => {
               offset={50}
               duration={500}
             >
-              <button className="border p-3 bg-white text-black text-base md:text-lg lg:text-xl hover:bg-teal-600 hover:border-none hover:text-white transition ease-out duration-500">
+              <button className="border p-2 sm:p-3 bg-white text-black text-sm md:text-base lg:text-lg hover:bg-teal-600 hover:border-none hover:text-white transition ease-out duration-500">
                 Shop Now <ArrowRight />
               </button>
             </Link>
@@ -83,4 +83,4 @@ const Automatic_caro = () => {
   );
 };
 
-export default Automatic_caro;
+export default AutomaticCarousel;

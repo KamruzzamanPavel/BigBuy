@@ -75,11 +75,7 @@ const Navbar = () => {
             style={linkStyle}
           >
             <div className="flex items-center">
-              <Avatar
-                alt={user.userName}
-                src="profile_logo_url"
-                className="mr-2"
-              />
+              <Avatar alt={user.userName} src="" className="mr-2" />
               <span>{user.userName}</span>
             </div>
           </Link>

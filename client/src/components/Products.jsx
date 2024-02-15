@@ -27,25 +27,25 @@ const Products = ({ category, filter }) => {
 
   return (
     <>
-      <header className="bg-gray-800 text-white py-4 mx-8  ">
-        <div className="container mx-auto flex justify-center">
-          <h1 className="text-3xl font-bold">All Products</h1>
+      <header className="bg-gray-900 text-white py-4 px-4  m-2">
+        <div className="container  flex justify-center">
+          <h1 className="  md:text-xl lg:text-3xl  font-bold">Products</h1>
         </div>
       </header>
 
-      <section
-        className="pb-8 m-8 mb-0 grid gap-2 md:grid-cols-2 lg:grid-cols-4"
-        id="products"
-      >
-        {" "}
-        {products.map((product) => (
-          <Product
-            key={product._id}
-            image={product.image}
-            id={product._id}
-            title={product.title}
-          />
-        ))}
+      <section className="mb-1">
+        <div className="container ">
+          <div className="grid gap-2 grid-cols-2 lg:grid-cols-5">
+            {products.map((product) => (
+              <Product
+                key={product._id}
+                image={product.image}
+                id={product._id}
+                title={product.title}
+              />
+            ))}
+          </div>
+        </div>
       </section>
     </>
   );
