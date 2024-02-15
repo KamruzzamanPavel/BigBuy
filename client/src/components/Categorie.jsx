@@ -15,7 +15,7 @@ const Categorie = ({ name, image }) => {
           <h2 className="mb-4 p-2 uppercase text-xl sm:text-2xl md:text-3xl text-white font-bold text-center">
             {name}
           </h2>
-          <button className="border p-2 bg-white text-black text-md md:text-lg hover:bg-teal-600 hover:border-none hover:text-white transition ease-out	duration-500">
+          <button className="border p-1 text-sm md:p-2 bg-white text-black md:text-md lg:text-lg hover:bg-teal-600 hover:border-none hover:text-white transition ease-out	duration-500">
             Shop Now
           </button>
         </figcaption>

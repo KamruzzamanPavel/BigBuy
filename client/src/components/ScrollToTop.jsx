@@ -4,33 +4,31 @@ const ScrollToTop = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    // Show button when user scrolls down
-    window.onscroll = () => {
-      if (
-        document.body.scrollTop > 20 ||
-        document.documentElement.scrollTop > 20
-      ) {
-        setIsVisible(true);
-      } else {
-        setIsVisible(false);
-      }
+    const handleScroll = () => {
+      const isScrolled =
+        document.body.scrollTop > 20 || document.documentElement.scrollTop > 20;
+      setIsVisible(isScrolled);
     };
+
+    window.addEventListener("scroll", handleScroll);
 
     // Clean up scroll event listener
     return () => {
-      window.onscroll = null;
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
   const scrollToTop = () => {
-    document.body.scrollTop = 0; // For Safari
-    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth", // This triggers smooth scrolling
+    });
   };
 
   return (
     <button
       onClick={scrollToTop}
-      className={`fixed bottom-4 right-4 bg-gray-800 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded-lg shadow-lg focus:outline-none focus:shadow-outline transition-all duration-300 ${
+      className={`fixed bottom-4 right-4 bg-gray-800 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded-lg shadow-lg focus:outline-none focus:shadow-outline transition-all duration-500 ${
         isVisible ? "block" : "hidden"
       }`}
     >

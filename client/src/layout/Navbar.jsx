@@ -60,7 +60,7 @@ const Navbar = () => {
       <>
         {!user ? (
           <Link to="/signup" className="block py-2 px-4 hover:bg-slate-600">
-            Register
+            Create a New Account
           </Link>
         ) : isAdmin ? (
           <h1 className="font-bold text-3xl flex items-center justify-start px-4 tracking-wider">
@@ -75,7 +75,7 @@ const Navbar = () => {
             style={linkStyle}
           >
             <div className="flex items-center">
-              <Avatar alt={user.userName} src="" className="mr-2" />
+              <Avatar alt={user.userName} className="mr-2" />
               <span>{user.userName}</span>
             </div>
           </Link>
@@ -88,8 +88,8 @@ const Navbar = () => {
         {user ? (
           <Logout />
         ) : (
-          <Link to="/login" className="block py-2 px-4 hover:bg-slate-600">
-            Sign in
+          <Link to="/login" className=" block py-2 px-4 hover:bg-slate-600">
+            Login
           </Link>
         )}
         {user ? (
