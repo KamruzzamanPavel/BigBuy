@@ -35,7 +35,7 @@ const Products = ({ category, filter }) => {
 
       <section className="mb-1">
         <div className="container ">
-          {products ? (
+          {products.length > 0 ? (
             <div className="grid gap-2 grid-cols-2 lg:grid-cols-5">
               {products.map((product) => (
                 <Product
