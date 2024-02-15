@@ -35,16 +35,23 @@ const Products = ({ category, filter }) => {
 
       <section className="mb-1">
         <div className="container ">
-          <div className="grid gap-2 grid-cols-2 lg:grid-cols-5">
-            {products.map((product) => (
-              <Product
-                key={product._id}
-                image={product.image}
-                id={product._id}
-                title={product.title}
-              />
-            ))}
-          </div>
+          {products ? (
+            <div className="grid gap-2 grid-cols-2 lg:grid-cols-5">
+              {products.map((product) => (
+                <Product
+                  key={product._id}
+                  id={product._id}
+                  title={product.title}
+                  image={product.image}
+                />
+              ))}
+            </div>
+          ) : (
+            <span className="text-red-500 text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl">
+              It may take a while to load products due to technical limitations.
+              Please wait a minute, and thanks for your precious time.
+            </span>
+          )}
         </div>
       </section>
     </>

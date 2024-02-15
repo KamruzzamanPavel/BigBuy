@@ -72,15 +72,21 @@ const Products = () => {
         className="pb-8 m-8 mb-0 grid gap-2 md:grid-cols-2 lg:grid-cols-4"
         id="products"
       >
-        {" "}
-        {products.map((product) => (
-          <Product
-            key={product._id}
-            product={product}
-            onUpdate={handleUpdate}
-            onDelete={handleDelete}
-          />
-        ))}
+        {products ? (
+          products.map((product) => (
+            <Product
+              key={product._id}
+              product={product}
+              onUpdate={handleUpdate}
+              onDelete={handleDelete}
+            />
+          ))
+        ) : (
+          <span className="text-red-500 text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl">
+            It may take a while to load products due to technical limitations.
+            Please wait a minute, and thanks for your precious time.
+          </span>
+        )}
       </section>
     </>
   );
