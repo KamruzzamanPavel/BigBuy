@@ -7,7 +7,7 @@ const Categories = () => {
       <section className="p-2" id="categories">
         <header className="bg-gray-900 text-white py-4 px-4  mb-2">
           <div className="container  flex justify-center">
-            <h1 className="  md:text-xl lg:text-3xl  font-bold">Products</h1>
+            <h1 className="  md:text-xl lg:text-3xl  font-bold">Product Categories</h1>
           </div>
         </header>
         <div className="grid gap-4 md:grid-cols-2 ">
