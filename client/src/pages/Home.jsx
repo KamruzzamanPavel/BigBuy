@@ -10,6 +10,7 @@ import Footer from "../layout/Footer";
 // import Adheader from "../components/admin/Adheader";
 import Automatic_caro from "../components/Automatic_caro";
 import ScrollToTop from "../components/ScrollToTop";
+import Slider from "../layout/Slider/Slider";
 const Home = () => {
   const user = useSelector((store) => store.auth.currentUser);
   var isAdmin = false;
@@ -19,8 +20,8 @@ const Home = () => {
   return (
     <div className="bg-black">
       <Navbar />
-      <Automatic_caro />
-
+      {/* <Automatic_caro /> */}
+      <Slider />
       <Categories />
       <Products />
       <ScrollToTop />
