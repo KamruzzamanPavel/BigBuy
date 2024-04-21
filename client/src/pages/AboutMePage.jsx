@@ -4,7 +4,13 @@ import { IconButton } from "@mui/material";
 // Import your social media icons (SVG) as React components
 import GitHubIcon from "@mui/icons-material/GitHub";
 import FacebookIcon from "@mui/icons-material/Facebook";
+
 const AboutMePage = () => {
+  useEffect(() => {
+    // Scroll to the top of the page when the component mounts
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className="min-h-screen bg-black text-white py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto">
