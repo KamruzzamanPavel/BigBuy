@@ -13,6 +13,10 @@ import Footer from "../layout/Footer";
 import Newsletter from "../components/Newsletter";
 
 const SingleProduct = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const user = useSelector((store) => store.auth.currentUser);
 
   var isAdmin = false;
