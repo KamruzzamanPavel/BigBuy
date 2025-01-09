@@ -8,9 +8,9 @@ import Logout from "../components/Logout";
 import Search from "../components/Search";
 
 const linkStyle = {
-  borderRadius: "20px", // You can adjust the border radius as needed
-  border: "2px solid white", // Adjust the border width and color as needed
-  padding: "8px 12px", // Adjust the padding as needed
+  borderRadius: "20px",
+  border: "2px solid white",
+  padding: "8px 12px",
 };
 
 const Navbar = () => {
@@ -32,11 +32,11 @@ const Navbar = () => {
       </h1>
 
       <div className="hidden md:flex justify-end items-center px-4 text-md md:text-lg">
+        <Search />
         {renderMenu(totalQantity)}
       </div>
 
       <div className="flex justify-end items-center md:hidden px-4">
-        <Search></Search>
         <IconButton onClick={toggleMenu}>
           <Menu style={{ color: "white" }} />
         </IconButton>
@@ -45,19 +45,20 @@ const Navbar = () => {
       {isOpen && (
         <div className="absolute top-16 w-full bg-slate-700 text-white z-10">
           <div className="flex items-center justify-center">
-            {" "}
             <IconButton onClick={toggleMenu}>
               <ArrowUpward style={{ color: "white" }} />
             </IconButton>
           </div>
-          <div className="px-4 py-2">{renderMenu(totalQantity)}</div>
+          <div className="px-4 py-2">
+            <Search />
+            {renderMenu(totalQantity)}
+          </div>
         </div>
       )}
     </nav>
   );
 
   function renderMenu(totalQantity) {
-    var tota;
     return (
       <>
         {!user ? (

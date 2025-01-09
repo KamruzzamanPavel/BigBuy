@@ -1,8 +1,8 @@
 import axios from "axios";
 import { useSelector } from "react-redux";
 
-const BASE_URL = "http://localhost:5000/api";
-// const BASE_URL = "https://bigbuy.onrender.com/api";
+// const BASE_URL = "http://localhost:5000/api";
+const BASE_URL = "https://bigbuy.onrender.com/api";
 
 const user = () => useSelector((store) => store.auth.currentUser);
 var TOKEN = "";
