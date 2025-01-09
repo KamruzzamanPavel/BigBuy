@@ -5,6 +5,7 @@ import Avatar from "@mui/material/Avatar";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import Logout from "../components/Logout";
+import Search from "../components/Search";
 
 const linkStyle = {
   borderRadius: "20px", // You can adjust the border radius as needed
@@ -35,6 +36,7 @@ const Navbar = () => {
       </div>
 
       <div className="flex justify-end items-center md:hidden px-4">
+        <Search></Search>
         <IconButton onClick={toggleMenu}>
           <Menu style={{ color: "white" }} />
         </IconButton>

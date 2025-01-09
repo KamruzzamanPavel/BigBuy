@@ -53,7 +53,6 @@ const ShoppingCart = () => {
 
   return (
     <>
-      <Announcement />
       <Navbar />
       <section className="px-8 py-2">
         <h1 className="uppercase mt-4 mb-8 text-4xl text-center">Your Bag</h1>

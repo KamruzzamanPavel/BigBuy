@@ -6,7 +6,7 @@ const {
   deleteProduct,
   getProduct,
   getProducts,
-  getAllProducts,
+  searchProducts, // Import the searchProducts controller
 } = require("../controllers/product");
 const { verifyTokenAndAdmin } = require("../middlewares/verifyToken");
 
@@ -20,8 +20,13 @@ router.patch("/:id", verifyTokenAndAdmin, updateProduct);
 
 // DELETE => /api/products/:id
 router.delete("/:id", verifyTokenAndAdmin, deleteProduct);
-// // GET => /api/products
+
+// GET => /api/products/search
+router.get("/search", searchProducts);
+
+// GET => /api/products
 router.get("/", getProducts);
+
 // GET => /api/products/:id
 router.get("/:id", getProduct);
 

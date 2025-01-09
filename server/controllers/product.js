@@ -54,6 +54,8 @@ module.exports.getProduct = async (req, res) => {
 };
 
 module.exports.getProducts = async (req, res) => {
+  console.log("getoroduct");
+
   const newQuery = req.query.new;
   const categoryQuery = req.query.category;
   try {
@@ -75,5 +77,30 @@ module.exports.getProducts = async (req, res) => {
     res.status(200).json(products);
   } catch (error) {
     res.status(500).json(error);
+  }
+};
+
+//search....8jan2025
+
+module.exports.searchProducts = async (req, res) => {
+  const { query } = req.query;
+
+  if (!query) {
+    return res.status(400).json({ message: "Query parameter is required." });
+  }
+
+  try {
+    const products = await Product.find({
+      $or: [
+        { title: { $regex: query, $options: "i" } },
+        { description: { $regex: query, $options: "i" } },
+        { category: { $regex: query, $options: "i" } },
+      ],
+    });
+
+    res.status(200).json(products);
+  } catch (error) {
+    console.error("Search Error:", error);
+    res.status(500).json({ message: "Internal server error bro." });
   }
 };
